@@ -12,7 +12,7 @@ import MediaPlayer
 struct Perfect_CadenceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PlayerScreen()
         }
     }
 }

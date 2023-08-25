@@ -1,20 +1,18 @@
 //
-//  ContentView.swift
+//  PlayerScreen.swift
 //  Perfect Cadence
 //
 //  Created by Lief Lundmark-Aitcheson on 25/8/2023.
 //
 
+import Foundation
 import SwiftUI
-import MediaPlayer
 
-struct ContentView: View {
-    @State var speed: Float = 1.0;
-    @State var isEditing = false;
-    let musicPlayer = MPMusicPlayerApplicationController.applicationMusicPlayer
+struct PlayerScreen: View {
+    @ObservedObject var viewModel: PlayerViewModel = PlayerViewModel()
     var body: some View {
         Button {
-            musicPlayer.setQueue(with: .songs())
+            viewModel.loadSongs()
         } label: {
             Text("Load songs")
                 .fontWeight(.bold)
@@ -25,7 +23,7 @@ struct ContentView: View {
                 .cornerRadius(20)
         }
         Button {
-            musicPlayer.play()
+            viewModel.play()
         } label: {
             Text("Play")
                 .fontWeight(.bold)
@@ -36,7 +34,7 @@ struct ContentView: View {
                 .cornerRadius(20)
         }
         Button {
-            musicPlayer.pause()
+            viewModel.pause()
         } label: {
             Text("Pause")
                 .fontWeight(.bold)
@@ -48,22 +46,20 @@ struct ContentView: View {
         }
         VStack {
                 Slider(
-                    value: $speed,
+                    value: $viewModel.speed,
                     in: 0...2,
                     onEditingChanged: { editing in
-                        isEditing = editing
-                        musicPlayer.currentPlaybackRate = speed;
+                        viewModel.updateSpeed()
                     }
                 )
-                Text("Playback speed \(speed)")
-                    .foregroundColor(isEditing ? .red : .blue)
+            Text("Playback speed \(viewModel.speed)")
             }
 
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PlayerScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        PlayerScreen()
     }
 }
