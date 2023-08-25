@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MediaPlayer
 
 @main
 struct Perfect_CadenceApp: App {

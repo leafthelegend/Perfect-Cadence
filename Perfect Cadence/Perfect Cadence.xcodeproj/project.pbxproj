@@ -19,6 +19,7 @@
 		7C5C47452A988C8700C04577 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7C5C47472A988C8700C04577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C5C474A2A988C8700C04577 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7C5C47532A989D7300C04577 /* Perfect-Cadence-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Perfect-Cadence-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +52,7 @@
 		7C5C47422A988C8700C04577 /* Perfect Cadence */ = {
 			isa = PBXGroup;
 			children = (
+				7C5C47532A989D7300C04577 /* Perfect-Cadence-Info.plist */,
 				7C5C47432A988C8700C04577 /* Perfect_CadenceApp.swift */,
 				7C5C47452A988C8700C04577 /* ContentView.swift */,
 				7C5C47472A988C8700C04577 /* Assets.xcassets */,
@@ -267,8 +269,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Perfect Cadence/Preview Content\"";
+				DEVELOPMENT_TEAM = 5W895QFSYA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Perfect-Cadence-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,8 +299,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Perfect Cadence/Preview Content\"";
+				DEVELOPMENT_TEAM = 5W895QFSYA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Perfect-Cadence-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
