@@ -19,13 +19,14 @@ class PaceTrackingModel: ObservableObject {
     
     func startUpdating() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.calculateStepsInLastMinute()
+            self.calculatePace()
         }
     }
     
-    func calculateStepsInLastMinute() {
+    // Taking the avg stepsPerMin over the interval of 5s
+    func calculatePace() {
         let endDate = Date()
-        if var startDate = Calendar.current.date(byAdding: .minute, value: -1, to: endDate) {
+        if var startDate = Calendar.current.date(byAdding: .second, value: -5, to: endDate) {
             print(startDate)
             startDate = max(startTime, startDate)
             print(startTime)
@@ -33,8 +34,8 @@ class PaceTrackingModel: ObservableObject {
             pedometer.queryPedometerData(from: startDate, to: endDate) { pedometerData, error in
                 if let pedometerData = pedometerData {
                     let timeInterval = endDate.timeIntervalSince(startDate)
-                    let stepsPerSecond = Double(pedometerData.numberOfSteps.intValue) / timeInterval
-                    self.stepsPerMin = Int(stepsPerSecond * 60)
+                    let stepsPerSec = Double(pedometerData.numberOfSteps.intValue) / timeInterval
+                    self.stepsPerMin = Int(stepsPerSec * 60)
                 }
             }
         }
