@@ -7,9 +7,10 @@
 
 import Foundation
 import MediaPlayer
+import os
 
 class PlayerViewModel: ObservableObject {
-
+    let logger = Logger()
     @Published var speed: Float = 1.0
     @Published var musicPlayer = MPMusicPlayerApplicationController.applicationMusicPlayer
     func loadSongs() {
@@ -17,6 +18,8 @@ class PlayerViewModel: ObservableObject {
     }
     func play() {
         musicPlayer.play()
+        let title = musicPlayer.nowPlayingItem?.title
+        logger.info("\(title ?? "")")
     }
     func pause() {
         musicPlayer.pause()

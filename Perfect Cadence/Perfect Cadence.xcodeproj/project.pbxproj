@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490CF1DD2A98A59E00DA99AA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490CF1DC2A98A59E00DA99AA /* AudioToolbox.framework */; };
 		490CF1DF2A98A5B500DA99AA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490CF1DE2A98A5B500DA99AA /* Accelerate.framework */; };
 		7C5C47442A988C8700C04577 /* Perfect_CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47432A988C8700C04577 /* Perfect_CadenceApp.swift */; };
 		7C5C47482A988C8700C04577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5C47472A988C8700C04577 /* Assets.xcassets */; };
 		7C5C474B2A988C8700C04577 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5C474A2A988C8700C04577 /* Preview Assets.xcassets */; };
 		7C5C475B2A98B00100C04577 /* PlayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C475A2A98B00100C04577 /* PlayerScreen.swift */; };
 		7C5C475D2A98B17A00C04577 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C475C2A98B17A00C04577 /* PlayerViewModel.swift */; };
+		7C5C476B2A98C93D00C04577 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C5C476A2A98C93D00C04577 /* AVFoundation.framework */; };
+		7C5C476D2A98C94400C04577 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C5C476C2A98C94400C04577 /* CoreAudio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,9 @@
 		7C5C47532A989D7300C04577 /* Perfect-Cadence-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Perfect-Cadence-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7C5C475A2A98B00100C04577 /* PlayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScreen.swift; sourceTree = "<group>"; };
 		7C5C475C2A98B17A00C04577 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
-		7C5C47602A98B3F100C04577 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = aubio.framework; path = "../../../aubio-0.4.7.iosuniversal_framework/aubio.framework"; sourceTree = "<group>"; };
+		7C5C476A2A98C93D00C04577 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7C5C476C2A98C94400C04577 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		7C5C476E2A98C97A00C04577 /* libSuperpoweredAudio.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libSuperpoweredAudio.xcframework; path = ../../../Superpowered/libSuperpoweredAudio.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,8 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C5C476D2A98C94400C04577 /* CoreAudio.framework in Frameworks */,
+				7C5C476B2A98C93D00C04577 /* AVFoundation.framework in Frameworks */,
 				490CF1DF2A98A5B500DA99AA /* Accelerate.framework in Frameworks */,
-				490CF1DD2A98A59E00DA99AA /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,9 +50,11 @@
 		490CF1DB2A98A59E00DA99AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C5C476C2A98C94400C04577 /* CoreAudio.framework */,
+				7C5C476A2A98C93D00C04577 /* AVFoundation.framework */,
 				490CF1E02A98A5CA00DA99AA /* aubio.framework */,
-				7C5C47602A98B3F100C04577 /* aubio.framework */,
 				490CF1DE2A98A5B500DA99AA /* Accelerate.framework */,
+				7C5C476E2A98C97A00C04577 /* libSuperpoweredAudio.xcframework */,
 				490CF1DC2A98A59E00DA99AA /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
@@ -172,6 +178,7 @@
 				TargetAttributes = {
 					7C5C473F2A988C8700C04577 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -338,12 +345,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Perfect Cadence/Preview Content\"";
 				DEVELOPMENT_TEAM = 5W895QFSYA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = libs/Superpowered;
 				INFOPLIST_FILE = "Perfect-Cadence-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -354,10 +363,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs/Superpower",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lieflundmarkaitcheson.Perfect-Cadence";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -368,12 +383,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Perfect Cadence/Preview Content\"";
 				DEVELOPMENT_TEAM = 5W895QFSYA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = libs/Superpowered;
 				INFOPLIST_FILE = "Perfect-Cadence-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -384,10 +401,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs/Superpower",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lieflundmarkaitcheson.Perfect-Cadence";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
