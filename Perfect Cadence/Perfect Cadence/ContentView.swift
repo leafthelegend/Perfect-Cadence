@@ -12,6 +12,8 @@ struct ContentView: View {
     @ObservedObject var stepTracker = StepTrackingModel()
     
     @ObservedObject var accelerationTracker = AccelerationTrackingModel()
+    
+    @ObservedObject var paceTracker = PaceTrackingModel()
 
     var body: some View {
         VStack {
@@ -21,11 +23,18 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .padding()
                         
-            Text("Running Pace:")
+            Text("Acceleration:")
                 .font(.headline)
             Text("\(accelerationTracker.runningAcceleration, specifier: "%.2f") m/s^2")
                 .font(.largeTitle)
                 .padding()
+            
+            Text("Running Pace:")
+                .font(.headline)
+            Text("\(paceTracker.stepsPerMin)")
+                .font(.largeTitle)
+                .padding()
+
         }
     }
 }
