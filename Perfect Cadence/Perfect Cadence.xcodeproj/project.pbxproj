@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490CF1DD2A98A59E00DA99AA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490CF1DC2A98A59E00DA99AA /* AudioToolbox.framework */; };
+		490CF1DF2A98A5B500DA99AA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490CF1DE2A98A5B500DA99AA /* Accelerate.framework */; };
+		490CF1E12A98A5CA00DA99AA /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490CF1E02A98A5CA00DA99AA /* aubio.framework */; };
 		7C5C47442A988C8700C04577 /* Perfect_CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47432A988C8700C04577 /* Perfect_CadenceApp.swift */; };
 		7C5C47462A988C8700C04577 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47452A988C8700C04577 /* ContentView.swift */; };
 		7C5C47482A988C8700C04577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5C47472A988C8700C04577 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490CF1DC2A98A59E00DA99AA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		490CF1DE2A98A5B500DA99AA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		490CF1E02A98A5CA00DA99AA /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = aubio.framework; path = "../aubio-0.4.7.iosuniversal_framework/aubio.framework"; sourceTree = "<group>"; };
 		7C5C47402A988C8700C04577 /* Perfect Cadence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Cadence.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C5C47432A988C8700C04577 /* Perfect_CadenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfect_CadenceApp.swift; sourceTree = "<group>"; };
 		7C5C47452A988C8700C04577 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,17 +32,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490CF1DF2A98A5B500DA99AA /* Accelerate.framework in Frameworks */,
+				490CF1DD2A98A59E00DA99AA /* AudioToolbox.framework in Frameworks */,
+				490CF1E12A98A5CA00DA99AA /* aubio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490CF1DB2A98A59E00DA99AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				490CF1E02A98A5CA00DA99AA /* aubio.framework */,
+				490CF1DE2A98A5B500DA99AA /* Accelerate.framework */,
+				490CF1DC2A98A59E00DA99AA /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7C5C47372A988C8600C04577 = {
 			isa = PBXGroup;
 			children = (
 				7C5C47422A988C8700C04577 /* Perfect Cadence */,
 				7C5C47412A988C8700C04577 /* Products */,
+				490CF1DB2A98A59E00DA99AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
