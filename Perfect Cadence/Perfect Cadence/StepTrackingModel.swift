@@ -8,15 +8,14 @@
 import Foundation
 import CoreMotion
 
-
-class PedometerWrapper: ObservableObject {
+// tracks number of steps
+class StepTrackingModel: ObservableObject {
     private var pedometer = CMPedometer()
     @Published var stepCount: Int = 0
 
     init() {
         startTrackingSteps()
     }
-
 
     func startTrackingSteps() {
         if CMPedometer.isStepCountingAvailable() {

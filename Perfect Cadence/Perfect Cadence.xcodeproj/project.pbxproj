@@ -14,7 +14,8 @@
 		49D2DF932A9901C900E8B115 /* Perfect_CadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2DF922A9901C900E8B115 /* Perfect_CadenceTests.swift */; };
 		49D2DF9D2A9901C900E8B115 /* Perfect_CadenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2DF9C2A9901C900E8B115 /* Perfect_CadenceUITests.swift */; };
 		49D2DF9F2A9901C900E8B115 /* Perfect_CadenceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2DF9E2A9901C900E8B115 /* Perfect_CadenceUITestsLaunchTests.swift */; };
-		49D2DFAC2A9903CC00E8B115 /* MotionTrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2DFAB2A9903CC00E8B115 /* MotionTrackingModel.swift */; };
+		49D2DFAE2A991EA600E8B115 /* StepTrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2DFAD2A991EA600E8B115 /* StepTrackingModel.swift */; };
+		49D2DFB02A991F7C00E8B115 /* PaceTrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2DFAF2A991F7C00E8B115 /* PaceTrackingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,8 @@
 		49D2DF982A9901C900E8B115 /* Perfect CadenceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Perfect CadenceUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D2DF9C2A9901C900E8B115 /* Perfect_CadenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfect_CadenceUITests.swift; sourceTree = "<group>"; };
 		49D2DF9E2A9901C900E8B115 /* Perfect_CadenceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfect_CadenceUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		49D2DFAB2A9903CC00E8B115 /* MotionTrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionTrackingModel.swift; sourceTree = "<group>"; };
+		49D2DFAD2A991EA600E8B115 /* StepTrackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StepTrackingModel.swift; sourceTree = "<group>"; };
+		49D2DFAF2A991F7C00E8B115 /* PaceTrackingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceTrackingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,8 @@
 			children = (
 				49D2DF812A9901C800E8B115 /* Perfect_CadenceApp.swift */,
 				49D2DF832A9901C800E8B115 /* ContentView.swift */,
-				49D2DFAB2A9903CC00E8B115 /* MotionTrackingModel.swift */,
+				49D2DFAD2A991EA600E8B115 /* StepTrackingModel.swift */,
+				49D2DFAF2A991F7C00E8B115 /* PaceTrackingModel.swift */,
 				49D2DF852A9901C800E8B115 /* Assets.xcassets */,
 				49D2DF872A9901C800E8B115 /* Preview Content */,
 			);
@@ -260,9 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49D2DFAC2A9903CC00E8B115 /* MotionTrackingModel.swift in Sources */,
 				49D2DF842A9901C800E8B115 /* ContentView.swift in Sources */,
+				49D2DFAE2A991EA600E8B115 /* StepTrackingModel.swift in Sources */,
 				49D2DF822A9901C800E8B115 /* Perfect_CadenceApp.swift in Sources */,
+				49D2DFB02A991F7C00E8B115 /* PaceTrackingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

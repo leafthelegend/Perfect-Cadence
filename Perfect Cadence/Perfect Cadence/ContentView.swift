@@ -8,19 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var pedometerWrapper = PedometerWrapper()
+    
+    @ObservedObject var stepTracker = StepTrackingModel()
+    
+    @ObservedObject var paceTracker = PaceTrackingModel()
 
     var body: some View {
         VStack {
             Text("Step Count:")
                 .font(.headline)
-            Text("\(pedometerWrapper.stepCount)")
+            Text("\(stepTracker.stepCount)")
+                .font(.largeTitle)
+                .padding()
+                        
+            Text("Running Pace:")
+                .font(.headline)
+            Text("\(paceTracker.runningPace, specifier: "%.2f") m/s")
                 .font(.largeTitle)
                 .padding()
         }
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
