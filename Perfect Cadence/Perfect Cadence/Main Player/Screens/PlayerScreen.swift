@@ -12,6 +12,8 @@ import Combine
 struct PlayerScreen: View {
     @ObservedObject var viewModel: PlayerViewModel = PlayerViewModel()
     @EnvironmentObject var spotify: Spotify
+    let playlistSelectionVC = PlaylistSelectionController()
+    
     @ObservedObject var paceTracker = PaceTrackingModel()
     init(){
         let _ = paceTracker.objectWillChange.sink {
@@ -19,6 +21,30 @@ struct PlayerScreen: View {
         }
     }
     var body: some View {
+        Button {
+            playlistSelectionVC.selectPlaylistButtonTapped()
+        } label: {
+            Text("Select playlist")
+                .fontWeight(.bold)
+                .font(.system(.title, design: .rounded))
+                .padding(20)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
+                .cornerRadius(20)
+        }
+                                                       
+        Button {
+            viewModel.loadSongs()
+        } label: {
+            Text("Load songs")
+                .fontWeight(.bold)
+                .font(.system(.title, design: .rounded))
+                .padding(20)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
+                .cornerRadius(20)
+        }
+        
         Button {
             viewModel.loadSongs()
         } label: {
