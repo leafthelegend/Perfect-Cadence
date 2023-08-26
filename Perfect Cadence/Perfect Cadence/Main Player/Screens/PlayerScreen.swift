@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PlayerScreen: View {
     @ObservedObject var viewModel: PlayerViewModel = PlayerViewModel()
+    @EnvironmentObject var spotify: Spotify
     var body: some View {
         Button {
             viewModel.loadSongs()
@@ -24,6 +25,7 @@ struct PlayerScreen: View {
         }
         Button {
             viewModel.play()
+            viewModel.search(spotify: spotify)
         } label: {
             Text("Play")
                 .fontWeight(.bold)
