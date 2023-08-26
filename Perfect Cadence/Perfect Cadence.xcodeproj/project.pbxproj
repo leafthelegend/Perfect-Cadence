@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		490CF1DF2A98A5B500DA99AA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490CF1DE2A98A5B500DA99AA /* Accelerate.framework */; };
 		49F430B42A99C3FD007C92FD /* PlaylistSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F430B32A99C3FD007C92FD /* PlaylistSelection.swift */; };
-		49F430B72A99E043007C92FD /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 49F430B62A99E043007C92FD /* SpotifyAPI */; };
 		7C5C47442A988C8700C04577 /* Perfect_CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47432A988C8700C04577 /* Perfect_CadenceApp.swift */; };
 		7C5C47482A988C8700C04577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5C47472A988C8700C04577 /* Assets.xcassets */; };
 		7C5C474B2A988C8700C04577 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5C474A2A988C8700C04577 /* Preview Assets.xcassets */; };
@@ -80,9 +79,9 @@
 		7C5C47AB2A99732E00C04577 /* RecentlyPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedView.swift; sourceTree = "<group>"; };
 		7C5C47BE2A99752700C04577 /* PlaylistDeduplicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDeduplicator.swift; sourceTree = "<group>"; };
 		7C5C47BF2A99752800C04577 /* Spotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
-		7C5C47C32A99777100C04577 /* MiscellaneousUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiscellaneousUtilities.swift; path = "Perfect Cadence/Project Utilities/MiscellaneousUtilities.swift"; sourceTree = "<group>"; };
-		7C5C47C42A99777100C04577 /* ImageNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageNames.swift; path = "Perfect Cadence/Project Utilities/ImageNames.swift"; sourceTree = "<group>"; };
-		7C5C47C52A99777100C04577 /* SpotifyAPIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpotifyAPIExtensions.swift; path = "Perfect Cadence/Project Utilities/SpotifyAPIExtensions.swift"; sourceTree = "<group>"; };
+		7C5C47C32A99777100C04577 /* MiscellaneousUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscellaneousUtilities.swift; sourceTree = "<group>"; };
+		7C5C47C42A99777100C04577 /* ImageNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageNames.swift; sourceTree = "<group>"; };
+		7C5C47C52A99777100C04577 /* SpotifyAPIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAPIExtensions.swift; sourceTree = "<group>"; };
 		7C5C47C62A99777100C04577 /* AlertItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		7C5C47CF2A997F6900C04577 /* GetBPMView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBPMView.swift; sourceTree = "<group>"; };
 		7C5C47D12A997F7B00C04577 /* BPMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMViewModel.swift; sourceTree = "<group>"; };
@@ -102,7 +101,6 @@
 				7C5C476B2A98C93D00C04577 /* AVFoundation.framework in Frameworks */,
 				7C5C478E2A98E0F700C04577 /* SpotifyAPI in Frameworks */,
 				490CF1DF2A98A5B500DA99AA /* Accelerate.framework in Frameworks */,
-				49F430B72A99E043007C92FD /* SpotifyAPI in Frameworks */,
 				7C5C47AE2A99743100C04577 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +336,6 @@
 			packageProductDependencies = (
 				7C5C478D2A98E0F700C04577 /* SpotifyAPI */,
 				7C5C47AD2A99743100C04577 /* KeychainAccess */,
-				49F430B62A99E043007C92FD /* SpotifyAPI */,
 			);
 			productName = "Perfect Cadence";
 			productReference = 7C5C47402A988C8700C04577 /* Perfect Cadence.app */;
@@ -372,7 +369,6 @@
 			packageReferences = (
 				7C5C478C2A98E0F700C04577 /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
 				7C5C47AC2A99743100C04577 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				49F430B52A99E042007C92FD /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
 			);
 			productRefGroup = 7C5C47412A988C8700C04577 /* Products */;
 			projectDirPath = "";
@@ -654,14 +650,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		49F430B52A99E042007C92FD /* XCRemoteSwiftPackageReference "SpotifyAPI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Peter-Schorn/SpotifyAPI";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		7C5C478C2A98E0F700C04577 /* XCRemoteSwiftPackageReference "SpotifyAPI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Peter-Schorn/SpotifyAPI#installation";
@@ -681,11 +669,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		49F430B62A99E043007C92FD /* SpotifyAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 49F430B52A99E042007C92FD /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
-			productName = SpotifyAPI;
-		};
 		7C5C478D2A98E0F700C04577 /* SpotifyAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7C5C478C2A98E0F700C04577 /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
