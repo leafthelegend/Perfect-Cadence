@@ -23,17 +23,15 @@ class PaceTrackingModel: ObservableObject {
         }
     }
     
-    // Taking the avg stepsPerMin over the interval of 5s
+    // Taking the avg stepsPerMin over the interval of 13s
+    // TODO -- find the best interval (the update lags -> oscillates)
+    // Optional -- heartbeat if we can convince Garmin to work w/ apple :3
     func calculatePace() {
         let endDate = Date()
-        if var startDate = Calendar.current.date(byAdding: .second, value: -5, to: endDate) {
-            print(startDate)
-            startDate = max(startTime, startDate)
-            print(startTime)
-            print(startDate)
+        if let startDate = Calendar.current.date(byAdding: .second, value: -13, to: endDate) {
             pedometer.queryPedometerData(from: startDate, to: endDate) { pedometerData, error in
                 if let pedometerData = pedometerData {
-                    let timeInterval = endDate.timeIntervalSince(startDate)
+                    let timeInterval = endDate.timeIntervalSince(max(self.startTime, startDate))
                     let stepsPerSec = Double(pedometerData.numberOfSteps.intValue) / timeInterval
                     self.stepsPerMin = Int(stepsPerSec * 60)
                 }

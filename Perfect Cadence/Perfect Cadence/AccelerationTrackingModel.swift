@@ -12,6 +12,8 @@ import CoreMotion
 // tracks the speed (but tracking acceleration & inaccurate ATM)
 // issue -- CMOdometerData -> speed is in Beta BRUHHHH
 // speed(t_i) = speed(t_i-1) + acceleration(t_i) * (t_i - t_i-1)
+// speed = integrate(a)
+// do we acc need speed?
 class AccelerationTrackingModel: ObservableObject {
     private let motionManager = CMMotionManager()
     @Published var runningAcceleration: Double = 0.0
