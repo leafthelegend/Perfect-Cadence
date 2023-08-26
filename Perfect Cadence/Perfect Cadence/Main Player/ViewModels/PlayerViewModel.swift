@@ -25,7 +25,14 @@ class PlayerViewModel: ObservableObject {
 //    @Published var isSearching = false
     @Published var currentBaseBPM = 0.0
     var paceTracker = PaceTrackingModel()
-    init(){
+    var DJ: NextSongModel
+    var titles = Set<String>()
+    var titleArray = [String]()
+    var bpmGetter: BPMGetter
+    var bpms = [String:Double?]()
+    init(bpmGetter: BPMGetter){
+        self.DJ = NextSongModel(bpmGetter: bpmGetter)
+        self.bpmGetter = bpmGetter
         Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { timer in
                         print("Current cadence: \(self.paceTracker.cadence ?? 0.0)")
                         self.setSpeed(targetBPM: self.paceTracker.cadence ?? 0.0)
@@ -43,9 +50,35 @@ class PlayerViewModel: ObservableObject {
 //    private var infoCancellable: AnyCancellable? = nil
     func loadSongs() {
         musicPlayer.setQueue(with: .songs())
+        musicPlayer.play()
+        //loop through and get the song titles
+        //default check 20 songs
+        for _ in (1...20)
+        {
+            if let title = musicPlayer.nowPlayingItem?.title{
+                titles.insert(title)
+                
+            }
+            musicPlayer.skipToNextItem()
+        }
+        print("titles: \(titles)")
+        musicPlayer.pause()
+        musicPlayer.skipToBeginning()
+        
+        titleArray = Array(titles)
+//        get the BPMs
+//        let waiterGroup = DispatchGroup()
+        print("about to start")
+        bpmGetter.getBPMs(queries: titleArray, categories: [.track]){bpmDictionary in
+            self.bpms = bpmDictionary
+            print("BPMs: \(self.bpms)")
+        }
+
     }
     func play() {
         musicPlayer.play()
+        let query = MPMediaQuery.songs()
+        print("query: \(query)")
         let title = musicPlayer.nowPlayingItem?.title
 //        self.searchText = title ?? ""
         logger.info("\(title ?? "")")
@@ -63,6 +96,11 @@ class PlayerViewModel: ObservableObject {
     }
     func updateSpeed() {
         musicPlayer.currentPlaybackRate = speed;
+    }
+    func updateQueue(){
+        //choose the next song based on the DJ's choice
+        let choice = DJ.nextSong(songNames: titleArray, playlist: bpms)
+        print("\(choice)")
     }
 //    func search(spotify: Spotify) {
 //
