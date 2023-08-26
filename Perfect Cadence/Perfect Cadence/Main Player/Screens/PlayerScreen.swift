@@ -11,7 +11,33 @@ import SwiftUI
 struct PlayerScreen: View {
     @ObservedObject var viewModel: PlayerViewModel = PlayerViewModel()
     @EnvironmentObject var spotify: Spotify
+    let playlistSelectionVC = PlaylistSelectionController()
+    
     var body: some View {
+        Button {
+            playlistSelectionVC.selectPlaylistButtonTapped()
+        } label: {
+            Text("Select playlist")
+                .fontWeight(.bold)
+                .font(.system(.title, design: .rounded))
+                .padding(20)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
+                .cornerRadius(20)
+        }
+                                                       
+        Button {
+            viewModel.loadSongs()
+        } label: {
+            Text("Load songs")
+                .fontWeight(.bold)
+                .font(.system(.title, design: .rounded))
+                .padding(20)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
+                .cornerRadius(20)
+        }
+        
         Button {
             viewModel.loadSongs()
         } label: {
