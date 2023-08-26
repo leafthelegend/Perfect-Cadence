@@ -41,6 +41,10 @@
 		7C5C47CA2A99777100C04577 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47C62A99777100C04577 /* AlertItem.swift */; };
 		7C5C47D02A997F6900C04577 /* GetBPMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47CF2A997F6900C04577 /* GetBPMView.swift */; };
 		7C5C47D22A997F7B00C04577 /* BPMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47D12A997F7B00C04577 /* BPMViewModel.swift */; };
+		7C5C47E82A99B13000C04577 /* StepTrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47E42A99B13000C04577 /* StepTrackingModel.swift */; };
+		7C5C47E92A99B13000C04577 /* PaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47E52A99B13000C04577 /* PaceView.swift */; };
+		7C5C47EA2A99B13000C04577 /* PaceTrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47E62A99B13000C04577 /* PaceTrackingModel.swift */; };
+		7C5C47EB2A99B13000C04577 /* AccelerationTrackingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47E72A99B13000C04577 /* AccelerationTrackingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +85,10 @@
 		7C5C47C62A99777100C04577 /* AlertItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		7C5C47CF2A997F6900C04577 /* GetBPMView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBPMView.swift; sourceTree = "<group>"; };
 		7C5C47D12A997F7B00C04577 /* BPMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMViewModel.swift; sourceTree = "<group>"; };
+		7C5C47E42A99B13000C04577 /* StepTrackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepTrackingModel.swift; sourceTree = "<group>"; };
+		7C5C47E52A99B13000C04577 /* PaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaceView.swift; sourceTree = "<group>"; };
+		7C5C47E62A99B13000C04577 /* PaceTrackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaceTrackingModel.swift; sourceTree = "<group>"; };
+		7C5C47E72A99B13000C04577 /* AccelerationTrackingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerationTrackingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,7 @@
 		7C5C47422A988C8700C04577 /* Perfect Cadence */ = {
 			isa = PBXGroup;
 			children = (
+				7C5C47E32A99B11E00C04577 /* Pace tracking */,
 				7C5C47CC2A997EFB00C04577 /* BPM Calculation */,
 				7C5C479A2A99730600C04577 /* Spotify */,
 				7C5C47542A98AE4100C04577 /* Main Player */,
@@ -296,6 +305,17 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		7C5C47E32A99B11E00C04577 /* Pace tracking */ = {
+			isa = PBXGroup;
+			children = (
+				7C5C47E72A99B13000C04577 /* AccelerationTrackingModel.swift */,
+				7C5C47E52A99B13000C04577 /* PaceView.swift */,
+				7C5C47E62A99B13000C04577 /* PaceTrackingModel.swift */,
+				7C5C47E42A99B13000C04577 /* StepTrackingModel.swift */,
+			);
+			path = "Pace tracking";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,16 +400,20 @@
 				7C5C47B02A9974E500C04577 /* PlaylistsListView.swift in Sources */,
 				7C5C47D22A997F7B00C04577 /* BPMViewModel.swift in Sources */,
 				7C5C47B12A9974E500C04577 /* PlaylistCellView.swift in Sources */,
+				7C5C47EA2A99B13000C04577 /* PaceTrackingModel.swift in Sources */,
 				7C5C47B22A9974E500C04577 /* DebugMenuView.swift in Sources */,
 				7C5C47C92A99777100C04577 /* SpotifyAPIExtensions.swift in Sources */,
 				7C5C47B32A9974E500C04577 /* TrackView.swift in Sources */,
+				7C5C47E82A99B13000C04577 /* StepTrackingModel.swift in Sources */,
 				7C5C47B42A9974E500C04577 /* LoginView.swift in Sources */,
 				7C5C47B52A9974E500C04577 /* SearchForTracksView.swift in Sources */,
 				7C5C47C12A99752800C04577 /* Spotify.swift in Sources */,
 				7C5C47C72A99777100C04577 /* MiscellaneousUtilities.swift in Sources */,
 				7C5C47B62A9974E500C04577 /* RootView.swift in Sources */,
+				7C5C47EB2A99B13000C04577 /* AccelerationTrackingModel.swift in Sources */,
 				7C5C47B72A9974E500C04577 /* ExamplesListView.swift in Sources */,
 				7C5C47B82A9974E500C04577 /* SavedAlbumsGridView.swift in Sources */,
+				7C5C47E92A99B13000C04577 /* PaceView.swift in Sources */,
 				7C5C47C82A99777100C04577 /* ImageNames.swift in Sources */,
 				49F430B42A99C3FD007C92FD /* PlaylistSelection.swift in Sources */,
 				7C5C47D02A997F6900C04577 /* GetBPMView.swift in Sources */,
