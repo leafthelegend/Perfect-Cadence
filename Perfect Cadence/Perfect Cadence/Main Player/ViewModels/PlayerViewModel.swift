@@ -39,6 +39,9 @@ class PlayerViewModel: ObservableObject {
     func pause() {
         musicPlayer.pause()
     }
+    func setSpeed(targetBPM: Float){
+        self.speed = targetBPM/Float(currentBaseBPM)
+    }
     func updateSpeed() {
         musicPlayer.currentPlaybackRate = speed;
     }

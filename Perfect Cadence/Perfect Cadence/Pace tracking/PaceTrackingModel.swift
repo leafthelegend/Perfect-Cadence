@@ -22,7 +22,6 @@ class PaceTrackingModel: ObservableObject {
         pedometer.startUpdates(
             from : Date(),
             withHandler: { data, error in
-                print("\(data)")
                 self.cadence = data?.currentCadence?.floatValue
             }
         )

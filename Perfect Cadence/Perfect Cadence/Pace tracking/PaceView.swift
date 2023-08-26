@@ -33,7 +33,7 @@ struct PaceView: View {
             
             Text("Running Pace:")
                 .font(.headline)
-            Text("\(paceTracker.stepsPerMin ?? 0.0)")
+            Text("\(paceTracker.cadence ?? 0.0)")
                 .font(.largeTitle)
                 .padding()
 

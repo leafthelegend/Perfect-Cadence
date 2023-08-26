@@ -7,10 +7,17 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct PlayerScreen: View {
     @ObservedObject var viewModel: PlayerViewModel = PlayerViewModel()
     @EnvironmentObject var spotify: Spotify
+    @ObservedObject var paceTracker = PaceTrackingModel()
+    init(){
+        let _ = paceTracker.objectWillChange.sink {
+            print("will change")
+        }
+    }
     var body: some View {
         Button {
             viewModel.loadSongs()
