@@ -16,9 +16,7 @@ struct PlayerScreen: View {
     
     @ObservedObject var paceTracker = PaceTrackingModel()
     init(){
-        let _ = paceTracker.objectWillChange.sink {
-            print("will change")
-        }
+        
     }
     var body: some View {
         Button {

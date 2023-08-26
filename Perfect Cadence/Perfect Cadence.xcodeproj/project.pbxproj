@@ -557,6 +557,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = libs/Superpowered;
 				INFOPLIST_FILE = "Perfect-Cadence-Info.plist";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Perfect Cadence needs to access your music library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -595,6 +596,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = libs/Superpowered;
 				INFOPLIST_FILE = "Perfect-Cadence-Info.plist";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Perfect Cadence needs to access your music library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
