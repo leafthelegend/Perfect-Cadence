@@ -16,6 +16,13 @@ struct Perfect_CadenceApp: App {
 
     init() {
         SpotifyAPILogHandler.bootstrap()
+        let BPMGetter = BPMGetter()
+        BPMGetter.getBPMs(queries: ["Snowblind","Beat It", "Blinding Lights"], categories: [.track]){result in
+            print("\(result)")   
+        }
+        BPMGetter.getBPM(title:"Snowblind"){bpm in
+            print("BPM \(bpm)")
+        }
     }
 
     var body: some Scene {
