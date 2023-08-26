@@ -28,6 +28,15 @@
       }
     },
     {
+      "identity" : "spotifyapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Peter-Schorn/SpotifyAPI",
+      "state" : {
+        "revision" : "74c3e42ebd983ecf3ceaef65786c72f971495003",
+        "version" : "2.2.4"
+      }
+    },
+    {
       "identity" : "spotifyapi#installation",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Peter-Schorn/SpotifyAPI#installation",
