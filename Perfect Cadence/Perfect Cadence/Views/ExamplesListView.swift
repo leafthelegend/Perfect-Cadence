@@ -9,9 +9,6 @@ struct ExamplesListView: View {
             NavigationLink(
                 "Debug Menu", destination: DebugMenuView()
             )
-            NavigationLink(
-                "Accelerometer Stats", destination: PaceView()
-            )
             
             // This is the location where you can add your own views to test out
             // your application. Each view receives an instance of `Spotify`
