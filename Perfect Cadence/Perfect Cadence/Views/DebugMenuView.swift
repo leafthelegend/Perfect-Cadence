@@ -8,34 +8,35 @@ struct DebugMenuView: View {
     @State private var cancellables: Set<AnyCancellable> = []
 
     var body: some View {
-        List {
-            Button("Make Access Token Expired") {
-                self.spotify.api.authorizationManager.setExpirationDate(
-                    to: Date()
-                )
-            }
-            Button("Refresh Access Token") {
-                self.spotify.api.authorizationManager.refreshTokens(
-                    onlyIfExpired: false
-                )
-                .sink(receiveCompletion: { completion in
-                    print("refresh tokens completion: \(completion)")
-                    
-                })
-                .store(in: &self.cancellables)
-            }
-            Button("Print SpotifyAPI") {
-                print(
-                    """
-                    --- SpotifyAPI ---
-                    \(self.spotify.api)
-                    ------------------
-                    """
-                )
-            }
-            
-        }
-        .navigationBarTitle("Debug Menu")
+//        List {
+//            Button("Make Access Token Expired") {
+//                self.spotify.api.authorizationManager.setExpirationDate(
+//                    to: Date()
+//                )
+//            }
+//            Button("Refresh Access Token") {
+//                self.spotify.api.authorizationManager.refreshTokens(
+//                    onlyIfExpired: false
+//                )
+//                .sink(receiveCompletion: { completion in
+//                    print("refresh tokens completion: \(completion)")
+//
+//                })
+//                .store(in: &self.cancellables)
+//            }
+//            Button("Print SpotifyAPI") {
+//                print(
+//                    """
+//                    --- SpotifyAPI ---
+//                    \(self.spotify.api)
+//                    ------------------
+//                    """
+//                )
+//            }
+//
+//        }
+//        .navigationBarTitle("About Perfect Cadence")
+        Text("Perfect Cadence is an app for runners.")
     }
 }
 

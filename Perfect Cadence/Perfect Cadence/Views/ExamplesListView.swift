@@ -4,14 +4,14 @@ struct ExamplesListView: View {
     
     var body: some View {
         List {
-            NavigationLink("Search Tracks", destination: SearchForTracksView())
-            NavigationLink("PlayerScreen", destination: PlayerScreen())
+//            NavigationLink("Search Tracks", destination: SearchForTracksView())
+            NavigationLink("Start Running!", destination: PlayerScreen())
             NavigationLink(
-                "Debug Menu", destination: DebugMenuView()
+                "About Perfect Cadence", destination: DebugMenuView()
             )
-            NavigationLink(
-                "Accelerometer Stats", destination: PaceView()
-            )
+//            NavigationLink(
+//                "Accelerometer Stats", destination: PaceView()
+//            )
             
             // This is the location where you can add your own views to test out
             // your application. Each view receives an instance of `Spotify`
