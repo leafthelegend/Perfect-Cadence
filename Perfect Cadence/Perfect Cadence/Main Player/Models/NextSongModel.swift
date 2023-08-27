@@ -31,6 +31,11 @@ class NextSongModel: ObservableObject{
         print("lastFiveSelected: \(lastFiveSelected)")
     }
     
+    func clearHistory(){
+        lastFiveSelected = []
+        print("History Cleared!")
+    }
+    
     // find the song w/ the closest BPM that's within +- 25%
     func findSongWithClosestBPM(to SPM: Double, in playlist: [String:Double?], bound: Bool = true) -> String? {
         var minDifference = 1000.0
@@ -38,7 +43,7 @@ class NextSongModel: ObservableObject{
         for (query, bpm) in playlist{
             let BPM = bpm ?? DEFAULTS.DEFAULT_BPM
             let difference = abs(SPM - BPM)
-            print("Difference for \(query) : \(difference)")
+//            print("Difference for \(query) : \(difference)")
             if difference < minDifference {
                 minDifference = difference
                 theOne = query
@@ -67,16 +72,15 @@ class NextSongModel: ObservableObject{
     
     func fetchUserSongs(completion: @escaping ([String]?) -> Void) -> Void {
         let query = MPMediaQuery.songs()
-        print("songs: \(query)")
+//        print("songs: \(query)")
     }
 
     
-    func nextSong(songNames: [String], playlist: [String:Double?]) -> String? {
-        let paceTracker = PaceTrackingModel()
+    func nextSong(songNames: [String], playlist: [String:Double?], cadence: Double) -> String? {
         var songTitle : String? = ""
-//        let SPM = Double(paceTracker.cadence) * 60.0
-        let SPM = Double(120.0);
         var possibleSongs: [String:Double] = [:]
+        var SPM = cadence*60.0
+//        print("DJSPM: \(SPM)")
         
         for (query, BPM) in playlist {
             // not in the 5 songs recently played
@@ -84,6 +88,7 @@ class NextSongModel: ObservableObject{
                 possibleSongs[query] = BPM
             }
         }
+        print("\(possibleSongs)")
         
         
         // closest BPM
