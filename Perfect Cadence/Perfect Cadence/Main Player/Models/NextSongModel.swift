@@ -88,7 +88,12 @@ class NextSongModel: ObservableObject{
                 possibleSongs[query] = BPM
             }
         }
-        print("\(possibleSongs)")
+//        print("\(possibleSongs)")
+        if possibleSongs.count == 0{
+            for (query, BPM) in playlist {
+                    possibleSongs[query] = BPM
+            }
+        }
         
         
         // closest BPM
@@ -104,7 +109,7 @@ class NextSongModel: ObservableObject{
             songTitle = closestToHalfSPM
             print("Branch 3")
         } else {
-            songTitle = self.findSongWithClosestBPM(to: SPM, in: playlist, bound: false)
+            songTitle = self.findSongWithClosestBPM(to: SPM, in: possibleSongs, bound: false)
             print("Branch 4")
         }
 //            waiterGroup.leave(
