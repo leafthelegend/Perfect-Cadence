@@ -13,22 +13,21 @@ import SpotifyWebAPI
 @main
 struct Perfect_CadenceApp: App {
     @StateObject var spotify = Spotify()
-
+    @StateObject var bpmGetter = BPMGetter()
     init() {
         SpotifyAPILogHandler.bootstrap()
-        let BPMGetter = BPMGetter()
-        BPMGetter.getBPMs(queries: ["Snowblind","Beat It", "Blinding Lights"], categories: [.track]){result in
-            print("\(result)")   
-        }
-        BPMGetter.getBPM(title:"Snowblind"){bpm in
-            print("BPM \(bpm)")
-        }
+//        bpmGetter.getBPMs(queries: ["Eucalyptus complete 1", "Snowblind (feat. Tasha Baxter)", "MUZZ B2B TEDDY KILLERZ @ SANCTUM 2023", "Metrik B2B Grafix @ EDC Las Vegas 2023", "pls, no call (but HB)", "Summer Sunset", "Melancholy rising"], categories: [.track]){result in
+//            print("initial bpms :\(result)")
+//        }
+//        BPMGetter.getBPM(title:"Snowblind"){bpm in
+//            print("BPM \(bpm)")
+//        }
     }
 
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(spotify)
+                .environmentObject(spotify).environmentObject(bpmGetter)
         }
     }
 }

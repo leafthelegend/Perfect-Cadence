@@ -10,10 +10,11 @@ import SwiftUI
 import Combine
 
 struct PlayerScreen: View {
-    @ObservedObject var viewModel: PlayerViewModel = PlayerViewModel()
     @EnvironmentObject var spotify: Spotify
+    @EnvironmentObject var bpmGetter: BPMGetter
     let playlistSelectionVC = PlaylistSelectionController()
     var body: some View {
+        @ObservedObject var viewModel = PlayerViewModel(bpmGetter: bpmGetter)
 //        Button {
 //            playlistSelectionVC.selectPlaylistButtonTapped()
 //        } label: {
@@ -76,6 +77,28 @@ struct PlayerScreen: View {
             viewModel.pause()
         } label: {
             Text("Pause")
+                .fontWeight(.bold)
+                .font(.system(.title, design: .rounded))
+                .padding(20)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
+                .cornerRadius(20)
+        }
+        Button {
+            viewModel.updateQueue()
+        } label: {
+            Text("Update Queue")
+                .fontWeight(.bold)
+                .font(.system(.title, design: .rounded))
+                .padding(20)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
+                .cornerRadius(20)
+        }
+        Button {
+            viewModel.scheduleNext(title: "Beat It")
+        } label: {
+            Text("Schedule Beat It")
                 .fontWeight(.bold)
                 .font(.system(.title, design: .rounded))
                 .padding(20)
