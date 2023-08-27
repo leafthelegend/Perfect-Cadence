@@ -1,0 +1,10 @@
+
+*.pbxproj
+Perfect Cadence/Perfect Cadence.xcodeproj/project.pbxproj
+Perfect Cadence/Perfect Cadence.xcodeproj/project.xcworkspace/xcuserdata/ella.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
+Perfect Cadence/.DS_Store
+Perfect Cadence/Perfect Cadence/.DS_Store
+*.plist
+Perfect Cadence/Perfect Cadence.xcodeproj/xcuserdata/ella.xcuserdatad/xcschemes/xcschememanagement.plist
+Perfect Cadence/Perfect Cadence.xcodeproj/xcshareddata/xcschemes/Perfect Cadence.xcscheme
