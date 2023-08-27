@@ -95,6 +95,17 @@ struct PlayerScreen: View {
                 .foregroundColor(Color.white)
                 .cornerRadius(20)
         }
+        Button {
+            viewModel.scheduleNext(title: "Beat It")
+        } label: {
+            Text("Schedule Beat It")
+                .fontWeight(.bold)
+                .font(.system(.title, design: .rounded))
+                .padding(20)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
+                .cornerRadius(20)
+        }
         VStack {
                 Slider(
                     value: $viewModel.speed,
