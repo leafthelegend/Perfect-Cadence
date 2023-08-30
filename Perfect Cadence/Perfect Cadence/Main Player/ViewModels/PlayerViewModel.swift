@@ -37,17 +37,22 @@ class PlayerViewModel: ObservableObject {
     var bpmGetter: BPMGetter
     var bpms = [String:Double?]()
     var isPaused: Bool = true;
+    var matchingTarget: Bool = true;
+    var bpmTarget: Float = 130.0/60.0;
     init(bpmGetter: BPMGetter){
         print("Init")
         self.DJ = NextSongModel(bpmGetter: bpmGetter)
         self.bpmGetter = bpmGetter
         loadSongs()
         Timer.scheduledTimer(withTimeInterval: CONSTANTS.UPDATE_INTERVAL, repeats: true) { timer in
-                        print("Current cadence: \(self.paceTracker.cadence ?? 0.0)")
-                        self.setSpeed(targetBPM: self.paceTracker.cadence ?? 0.0)
-                        self.updateSpeed()
-                        self.updateQueue()
+                        print("Current cadence: \(self.paceTracker.cadence)")
+                        self.reflow()
                     }
+    }
+    func reflow(){
+        self.setSpeed(targetBPM: self.paceTracker.cadence)
+        self.updateSpeed()
+        self.updateQueue()
     }
     func loadSongs() {
         musicPlayer.setQueue(with: .songs())
@@ -90,6 +95,9 @@ class PlayerViewModel: ObservableObject {
                 self.DJ.pushSong(title: title)
                 self.artwork = artwork
                 print("Detected song Change!")
+                self.setSpeed(targetBPM: self.paceTracker.cadence)
+                self.updateSpeed()
+                self.updateQueue()
             }
         }
     }
@@ -120,10 +128,14 @@ class PlayerViewModel: ObservableObject {
     }
     func setSpeed(targetBPM: Float){
         if let title = musicPlayer.nowPlayingItem?.title{if let baseBPM = bpms[title]{
+            var target = targetBPM
+            if matchingTarget{
+                target = bpmTarget
+            }
             let speedOptions = [
-                max(targetBPM*120/Float(baseBPM ?? 100),CONSTANTS.MIN_MULTIPLIER),
-                max(targetBPM*30/Float(baseBPM ?? 100),CONSTANTS.MIN_MULTIPLIER),
-                max(targetBPM*60/Float(baseBPM ?? 100),CONSTANTS.MIN_MULTIPLIER)
+                max(target*120/Float(baseBPM ?? 100),CONSTANTS.MIN_MULTIPLIER),
+                max(target*30/Float(baseBPM ?? 100),CONSTANTS.MIN_MULTIPLIER),
+                max(target*60/Float(baseBPM ?? 100),CONSTANTS.MIN_MULTIPLIER)
             ]
             let sortedSpeeds = speedOptions.sorted {
                 abs($0 - 1.0) > abs($1 - 1.0)
@@ -136,7 +148,7 @@ class PlayerViewModel: ObservableObject {
     }
     func updateSpeed() {
         if isPaused{return}
-        if Double(abs(self.speed - musicPlayer.currentPlaybackRate)) > CONSTANTS.CHANGE_THRESHOLD{
+        if (Double(abs(self.speed - musicPlayer.currentPlaybackRate)) > CONSTANTS.CHANGE_THRESHOLD) || matchingTarget {
             print("Updated Speed! Threshold: \(abs(self.speed - musicPlayer.currentPlaybackRate))")
             musicPlayer.currentPlaybackRate = speed;
         }else{
