@@ -1,8 +1,16 @@
-*.pbxproj
+# *.pbxproj
 *.xcuserstate
-*.DS_Store
 *.plist
+*Info.plist
 *.xcscheme
+
+#####
+# OS X temporary files that should never be committed
+
+.DS_Store
+*.swp
+*.lock
+profile
 
 # Xcode
 #
@@ -10,23 +18,6 @@
 
 ## User settings
 xcuserdata/
-
-## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
-*.xcscmblueprint
-*.xccheckout
-
-## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
-build/
-DerivedData/
-*.moved-aside
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
 
 ## Obj-C/Swift specific
 *.hmap
