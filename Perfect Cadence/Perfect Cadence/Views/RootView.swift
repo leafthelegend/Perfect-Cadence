@@ -12,10 +12,29 @@ struct RootView: View {
     
     var body: some View {
         NavigationView {
-            ExamplesListView()
-                .navigationBarTitle("Perfect Cadence")
-                .navigationBarItems(trailing: logoutButton)
-                .disabled(!spotify.isAuthorized)
+            List {
+                profile
+                
+                Section {
+                    NavigationLink("Start Running!", destination: PlayerScreen())
+                    NavigationLink(
+                        "About Perfect Cadence", destination: DebugMenuView()
+                    )
+                    //            NavigationLink("Search Tracks", destination: SearchForTracksView())
+                    //            NavigationLink(
+                    //                "Accelerometer Stats", destination: PaceView()
+                    //            )
+                    
+                    // This is the location where you can add your own views to test out
+                    // your application. Each view receives an instance of `Spotify`
+                    // from the environment.
+                    
+                }
+            }
+            .listStyle(.insetGrouped)
+            .navigationBarTitle("Perfect Cadence")
+            .navigationBarItems(trailing: logoutButton)
+            .disabled(!spotify.isAuthorized)
         }
         // The login view is presented if `Spotify.isAuthorized` == `false. When
         // the login button is tapped, `Spotify.authorize()` is called. After
@@ -31,6 +50,27 @@ struct RootView: View {
         // Called when a redirect is received from Spotify.
         .onOpenURL(perform: handleURL(_:))
         
+    }
+    
+    var profile: some View {
+        VStack {
+            Image(systemName: "person")
+                .symbolVariant(.circle/*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                .font(.largeTitle)
+                .symbolRenderingMode(.monochrome)
+                .foregroundStyle(.blue.opacity(0.5))
+                .padding()
+                .background(Circle().fill(.ultraThinMaterial))
+                .background(
+                    Image(systemName: "hexagon")
+                        .symbolVariant(.fill)
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 200))
+                        .offset(CGSize(width: -50, height: -100.0))
+                )
+        }
+        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        .padding()
     }
     
     /**
