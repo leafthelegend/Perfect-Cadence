@@ -102,102 +102,109 @@ struct InternalPlayerView: View {
     }
         
     var body: some View {
-        
-        VStack {
-            Toggle("Set Target", isOn: $viewModel.matchingTarget)
-                .padding().onSubmit {
-                    viewModel.reflow()
-                }
-            
-            if viewModel.matchingTarget {
-//                Text("Target: \(Int(viewModel.bpmTarget*60.0))")
-//                    .font(.headline)
-//                    .foregroundColor(.green)
-                TextField(
+        GeometryReader { geometry in
+            VStack {
+                Spacer()
+                Toggle("Set Target", isOn: $viewModel.matchingTarget)
+                    .padding().onSubmit {
+                        viewModel.reflow()
+                    }
+                
+                if viewModel.matchingTarget {
+                    //                Text("Target: \(Int(viewModel.bpmTarget*60.0))")
+                    //                    .font(.headline)
+                    //                    .foregroundColor(.green)
+                    TextField(
                         "Target BPM",
                         text: $bpmTarget                ).font(.headline).multilineTextAlignment(.center).foregroundColor(.green).onSubmit {
                             if let bpm = Int(bpmTarget){
                                 viewModel.bpmTarget = Float(bpm)/60.0
                                 viewModel.reflow()
                             }
-                }
-            }else{
-                Text("Perfect Cadence will match your pace.")
-                    .font(.headline)
-                    .foregroundColor(.purple)
-            }
-            
-            HStack {
-                
-                if let artwork = viewModel.artwork,
-                    let uiImage = artwork.image(at: CGSize(width: 90, height: 90)) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 90, height: 90).padding(5)
-                } else {
-                    Color.gray
-                        .frame(width: 90, height: 90).padding(5)
+                        }
+                }else{
+                    Text("Perfect Cadence will match your pace.")
+                        .font(.headline)
+                        .foregroundColor(.purple)
                 }
                 
-                VStack {
-                    Text(viewModel.musicPlayer.nowPlayingItem?.title ?? "No Title")
-                        .fontWeight(.bold)
-                        .font(.system(.headline, design: .rounded))
-                        .padding(4)
+                HStack {
                     
-                    Text(viewModel.musicPlayer.nowPlayingItem?.artist ?? "Unknown Artist")
-                        .font(.subheadline)
-                }
-                Button {
-                    isPlaying = !isPlaying
-                    if isPlaying {
-                        viewModel.play()
+                    if let artwork = viewModel.artwork,
+                       let uiImage = artwork.image(at: CGSize(width: 90, height: 90)) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 90, height: 90).padding(5)
                     } else {
-                        viewModel.pause()
+                        Color.gray
+                            .frame(width: 90, height: 90).padding(5)
                     }
-                } label: {
-                    Image(systemName: isPlaying ? "pause.circle" : "play.circle")
-                        .font(.system(size: 60))
-                }
-                
-                Button {
-                    viewModel.skip()
-                } label: {
-                    Image(systemName: "forward.end.fill")
-                        .font(.system(size: 27))
-                }
-            }
-            .padding(32)
-            .background(gradient.cornerRadius(20))
-            .onAppear {
-                startTimer()
-            }
-            .onDisappear {
-                stopTimer()
-            }
+                    
+                    VStack {
+                        Text(viewModel.musicPlayer.nowPlayingItem?.title ?? "No Title")
+                            .fontWeight(.bold)
+                            .font(.system(.headline, design: .rounded))
+                            .padding(4)
                         
-            Text("Base BPM:")
-                .font(.system(.title, design: .rounded))
-                .fontWeight(.bold)
-            Text("\(Int(viewModel.baseBPM))")
-                .font(.largeTitle)
-                .padding()
-            
-            Text("Current BPM:")
-                .font(.system(.title, design: .rounded))
-                .fontWeight(.bold)
-            Text("\(Int(Double(viewModel.speed) * Double(viewModel.baseBPM)))")
-                .font(.largeTitle)
-                .padding()
-            
-            Text("Step per Min:")
-                .font(.system(.title, design: .rounded))
-                .fontWeight(.bold)
-            Text("\(Int(paceTracker.cadence * 60))")
-                .font(.largeTitle)
-                .padding()
-        }    }
+                        Text(viewModel.musicPlayer.nowPlayingItem?.artist ?? "Unknown Artist")
+                            .font(.subheadline)
+                    }
+                    Button {
+                        isPlaying = !isPlaying
+                        if isPlaying {
+                            viewModel.play()
+                        } else {
+                            viewModel.pause()
+                        }
+                    } label: {
+                        Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                            .font(.system(size: 60))
+                    }
+                    
+                    Button {
+                        viewModel.skip()
+                    } label: {
+                        Image(systemName: "forward.end.fill")
+                            .font(.system(size: 27))
+                    }
+                }
+                .padding(geometry.size.width * 0.05)
+                .background(gradient.cornerRadius(30).shadow(radius: /*@START_MENU_TOKEN@*/20/*@END_MENU_TOKEN@*/))
+                .onAppear {
+                    startTimer()
+                }
+                .onDisappear {
+                    stopTimer()
+                }
+                VStack {
+                    Text("Base BPM:")
+                        .font(.system(.title, design: .rounded))
+                        .fontWeight(.bold)
+                    Text("\(Int(viewModel.baseBPM))")
+                        .font(.system(.largeTitle))
+                        .padding(geometry.size.height * 0.005)
+                    
+                    Text("Current BPM:")
+                        .font(.system(.title, design: .rounded))
+                        .fontWeight(.bold)
+                    Text("\(Int(Double(viewModel.speed) * Double(viewModel.baseBPM)))")
+                        .font(.system(.largeTitle))
+                        .padding(geometry.size.height * 0.005)
+                    
+                    Text("Step per Min:")
+                        .font(.system(.title, design: .rounded))
+                        .fontWeight(.bold)
+                    Text("\(Int(paceTracker.cadence * 60))")
+                        .font(.system(.largeTitle))
+                        .padding(geometry.size.height * 0.005)
+                }
+                .padding(.top, geometry.size.height * 0.05)
+                Spacer()
+            }
+            .ignoresSafeArea()
+        }
+    }
     
 }
 

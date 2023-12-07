@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		490CF1DF2A98A5B500DA99AA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490CF1DE2A98A5B500DA99AA /* Accelerate.framework */; };
+		492834692B204F740092490F /* SquigglyBob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492834682B204F740092490F /* SquigglyBob.swift */; };
 		496352AD2A9ADAFF00BE43A4 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 496352AC2A9ADAFF00BE43A4 /* SpotifyAPI */; };
 		49F430B42A99C3FD007C92FD /* PlaylistSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F430B32A99C3FD007C92FD /* PlaylistSelection.swift */; };
 		7C5C47442A988C8700C04577 /* Perfect_CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C47432A988C8700C04577 /* Perfect_CadenceApp.swift */; };
@@ -53,6 +54,7 @@
 		490CF1DC2A98A59E00DA99AA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		490CF1DE2A98A5B500DA99AA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		490CF1E02A98A5CA00DA99AA /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = aubio.framework; path = "../aubio-0.4.7.iosuniversal_framework/aubio.framework"; sourceTree = "<group>"; };
+		492834682B204F740092490F /* SquigglyBob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquigglyBob.swift; sourceTree = "<group>"; };
 		49F430B32A99C3FD007C92FD /* PlaylistSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSelection.swift; sourceTree = "<group>"; };
 		7C5C47402A988C8700C04577 /* Perfect Cadence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perfect Cadence.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C5C47432A988C8700C04577 /* Perfect_CadenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfect_CadenceApp.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		7C5C47572A98AEA300C04577 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				492834682B204F740092490F /* SquigglyBob.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				7C5C47B42A9974E500C04577 /* LoginView.swift in Sources */,
 				7C5C47B52A9974E500C04577 /* SearchForTracksView.swift in Sources */,
 				7C5C47C12A99752800C04577 /* Spotify.swift in Sources */,
+				492834692B204F740092490F /* SquigglyBob.swift in Sources */,
 				7C5C47C72A99777100C04577 /* MiscellaneousUtilities.swift in Sources */,
 				7C5C47B62A9974E500C04577 /* RootView.swift in Sources */,
 				7C5C47EB2A99B13000C04577 /* AccelerationTrackingModel.swift in Sources */,
