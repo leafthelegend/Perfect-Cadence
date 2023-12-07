@@ -130,7 +130,6 @@
 		7C5C47372A988C8600C04577 = {
 			isa = PBXGroup;
 			children = (
-				492834682B204F740092490F /* SquigglyBob.swift */,
 				7C5C47422A988C8700C04577 /* Perfect Cadence */,
 				7C5C47412A988C8700C04577 /* Products */,
 				490CF1DB2A98A59E00DA99AA /* Frameworks */,
@@ -200,6 +199,7 @@
 		7C5C47572A98AEA300C04577 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				492834682B204F740092490F /* SquigglyBob.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -16,9 +16,17 @@ struct RootView: View {
                 profile
                 
                 Section {
-                    NavigationLink("Start Running!", destination: PlayerScreen())
                     NavigationLink(
-                        "About Perfect Cadence", destination: DebugMenuView()
+                        "Start Running!",
+                        destination: PlayerScreen()
+                    )
+                    NavigationLink(
+                        "About Perfect Cadence", 
+                        destination: DebugMenuView()
+                    )
+                    NavigationLink(
+                        "Squiggly Bob",
+                        destination: SquigglyBobWrapper()
                     )
                     //            NavigationLink("Search Tracks", destination: SearchForTracksView())
                     //            NavigationLink(
