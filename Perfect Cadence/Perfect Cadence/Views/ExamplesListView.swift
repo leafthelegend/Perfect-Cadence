@@ -3,6 +3,7 @@ import SwiftUI
 struct ExamplesListView: View {
     @State private var currentIndex: Int = 0
     @State private var dragOffset: CGFloat = 0
+    @State private var selectedItem: Int? = nil
     
     private let numOfItems: Int = 3 // change as adding more items
     private let itemWidth: CGFloat = 250 // how to set as adaptive
@@ -35,31 +36,30 @@ struct ExamplesListView: View {
             HStack (alignment: .center, spacing: peekAmount){
                 ForEach(items.indices, id: \.self) { index in
                     
-                    NavigationLink(
-                        destination: AnyView(links[index]),
-                        label: {
-                            items[index]
-                                .resizable()
-                                .cornerRadius(25)
-                                .frame(width: itemWidth,
-                                       height: itemWidth)
-                                .overlay(alignment: .bottomLeading) {
-                                    texts[index]
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                        .offset(CGSize(
-                                            width: 10,
-                                            height: 40)
-                                        )
-                                        .opacity(self.textOpacity(at: index, in: geometry))
-                                }
-                                .scaleEffect(self.scaleValue(at: index, in: geometry))
+                    items[index]
+                        .resizable()
+                        .cornerRadius(25)
+                        .frame(width: itemWidth,
+                               height: itemWidth)
+                        .overlay(alignment: .bottomLeading) {
+                            texts[index]
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .offset(CGSize(
+                                    width: 10,
+                                    height: 40)
+                                )
+                                .opacity(self.textOpacity(at: index, in: geometry))
                         }
-                    )
-                    
+                        .scaleEffect(self.scaleValue(at: index, in: geometry))
+                        .onTapGesture {
+                            selectedItem = index
+                        }
                 }
-                
             }
+            .fullScreenCover(item: $selectedItem) { index in
+                            links[index]
+                        }
             .offset(x: calculateOffset() + dragOffset)
             .gesture(
                 DragGesture(coordinateSpace: .global)
@@ -120,6 +120,14 @@ struct ExamplesListView: View {
         }
     }
 }
+
+
+extension Int: Identifiable {
+    public var id: Int {
+        self
+    }
+}
+
 
 struct ExamplesListView_Previews: PreviewProvider {
     
