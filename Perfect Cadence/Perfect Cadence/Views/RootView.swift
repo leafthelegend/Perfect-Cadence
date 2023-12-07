@@ -11,52 +11,64 @@ struct RootView: View {
     @State private var cancellables: Set<AnyCancellable> = []
     
     var body: some View {
-        NavigationView {
-            List {
-                profile
-                
-                Section {
-                    NavigationLink(
-                        "Start Running!",
-                        destination: PlayerScreen()
-                    )
-                    NavigationLink(
-                        "About Perfect Cadence", 
-                        destination: DebugMenuView()
-                    )
-                    NavigationLink(
-                        "Squiggly Bob",
-                        destination: SquigglyBobWrapper()
-                    )
-                    //            NavigationLink("Search Tracks", destination: SearchForTracksView())
-                    //            NavigationLink(
-                    //                "Accelerometer Stats", destination: PaceView()
-                    //            )
+        GeometryReader {geometry in
+            NavigationView {
+                VStack {
                     
-                    // This is the location where you can add your own views to test out
-                    // your application. Each view receives an instance of `Spotify`
-                    // from the environment.
+                    List {
+                        profile
+                        
+                        ExamplesListView()
+                            .padding(.top, 25)
+                            .padding(.bottom, 330)
+
+                        
+                        //                                    Section {
+                        //                                        NavigationLink(
+                        //                                            "Start Running!",
+                        //                                            destination: PlayerScreen()
+                        //                                        )
+                        //                                        NavigationLink(
+                        //                                            "About Perfect Cadence",
+                        //                                            destination: DebugMenuView()
+                        //                                        )
+                        //                                        NavigationLink(
+                        //                                            "Squiggly Bob",
+                        //                                            destination: SquigglyBobWrapper()
+                        //                                        )
+                        //                                        //            NavigationLink("Search Tracks", destination: SearchForTracksView())
+                        //                                        //            NavigationLink(
+                        //                                        //                "Accelerometer Stats", destination: PaceView()
+                        //                                        //            )
+                        //
+                        //                                        // This is the location where you can add your own views to test out
+                        //                                        // your application. Each view receives an instance of `Spotify`
+                        //                                        // from the environment.
+                        //
+                        //                                    }
+                    }
+                    .padding(.top)
+                    .listStyle(.insetGrouped)
+                    .navigationBarTitle("Perfect Cadence")
+                    .navigationBarItems(trailing: logoutButton)
+                    .disabled(!spotify.isAuthorized)
                     
                 }
             }
-            .listStyle(.insetGrouped)
-            .navigationBarTitle("Perfect Cadence")
-            .navigationBarItems(trailing: logoutButton)
-            .disabled(!spotify.isAuthorized)
+            // The login view is presented if `Spotify.isAuthorized` == `false. When
+            // the login button is tapped, `Spotify.authorize()` is called. After
+            // the login process successfully completes, `Spotify.isAuthorized` will
+            // be set to `true` and `LoginView` will be dismissed, allowing the user
+            // to interact with the rest of the app.
+            .modifier(LoginView())
+            // Presented if an error occurs during the process of authorizing with
+            // the user's Spotify account.
+            .alert(item: $alert) { alert in
+                Alert(title: alert.title, message: alert.message)
+            }
+            // Called when a redirect is received from Spotify.
+            .onOpenURL(perform: handleURL(_:))
         }
-        // The login view is presented if `Spotify.isAuthorized` == `false. When
-        // the login button is tapped, `Spotify.authorize()` is called. After
-        // the login process successfully completes, `Spotify.isAuthorized` will
-        // be set to `true` and `LoginView` will be dismissed, allowing the user
-        // to interact with the rest of the app.
-        .modifier(LoginView())
-        // Presented if an error occurs during the process of authorizing with
-        // the user's Spotify account.
-        .alert(item: $alert) { alert in
-            Alert(title: alert.title, message: alert.message)
-        }
-        // Called when a redirect is received from Spotify.
-        .onOpenURL(perform: handleURL(_:))
         
     }
     
