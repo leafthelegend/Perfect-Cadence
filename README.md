@@ -21,3 +21,11 @@ If you choose to set a target pace, then the app will choose songs close to this
 
 <img src="https://github.com/leafthelegend/Perfect-Cadence/assets/66891654/f5dfb89f-00be-470f-86be-624c983c6300" alt="phone screen" width="200"/>
 <img src="https://github.com/leafthelegend/Perfect-Cadence/assets/66891654/1f33f3a1-5127-4d47-9f3e-d7e514741054" alt="phone screen" width="200"/>
+
+## TODO: 
+- go back to main page smh after fullScreenCover
+- implement the badge/ achievement system
+- implement select playlist **IMPORTANT**
+- autoDJ, some music features analysis required
+- visualisation (it's hard, and I hate the squiggly bob)
+
