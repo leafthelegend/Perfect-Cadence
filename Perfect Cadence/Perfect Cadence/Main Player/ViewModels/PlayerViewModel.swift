@@ -62,14 +62,14 @@ class PlayerViewModel: ObservableObject {
         //default check 20 songs
         for _ in (1...20)
         {
-            if let song = musicPlayer.nowPlayingItem, let title = song.title{
-                if titleArray.contains(title){break}
-                titleArray.append(title)
-                songs[title] = song
+            if let song = musicPlayer.nowPlayingItem, let title = song.title, let artist = song.artist{
+                if titleArray.contains("\(title) \(artist)"){break}
+                titleArray.append("\(title) \(artist)")
+                songs["\(title) \(artist)"] = song
             }
             musicPlayer.skipToNextItem()
         }
-        print("titles: \(titleArray)")
+        print("titles & artists: \(titleArray)")
         musicPlayer.pause()
         musicPlayer.skipToBeginning()
         
